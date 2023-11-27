@@ -51,7 +51,7 @@ namespace StarterAssests
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
 
-		// cinemachine
+		// cinemachin
 		private float _cinemachineTargetPitch;
 
 		// player
@@ -86,7 +86,7 @@ namespace StarterAssests
 			}
 		}
 
-		private Animator _animator;
+		
 
 		private void Awake()
 		{
@@ -103,7 +103,6 @@ namespace StarterAssests
 			_input = GetComponent<StarterAssestsInputs>();
 #if ENABLE_INPUT_SYSTEM
 			_playerInput = GetComponent<PlayerInput>();
-			_animator = GetComponent<Animator>();
 #else
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
@@ -123,7 +122,6 @@ namespace StarterAssests
 		private void LateUpdate()
 		{
 			CameraRotation();
-            Fire();
         }
 
 		private void GroundedCheck()
@@ -204,17 +202,6 @@ namespace StarterAssests
 		}
 
 		
-		private void Fire()
-		{
-			if (_input.shoot)
-			{
-			
-				
-				_animator.SetTrigger("meleeAttack");
-				_input.shoot = false;
-				
-			}
-		}
 
 		private void JumpAndGravity()
 		{
