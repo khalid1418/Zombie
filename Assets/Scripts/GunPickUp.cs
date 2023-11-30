@@ -12,7 +12,7 @@ public class GunPickUp : MonoBehaviour , Iinteractable
     }
     public string GetInteractText()
     {
-        return "PickUp -> Press(1) to change weapons";
+        return "PickUp -> Press(Tap) to change weapons";
     }
 
     public void Interact(Transform interactorTransform)

@@ -1088,6 +1088,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: myavatarwithanim
       objectReference: {fileID: 0}
+    - target: {fileID: 4023288997462991658, guid: 2afb3d626eb8589408c050c3fefc6a0b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4368008585594321296, guid: 2afb3d626eb8589408c050c3fefc6a0b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1249,6 +1254,11 @@ PrefabInstance:
       propertyPath: crossFireImage
       value: 
       objectReference: {fileID: 1378095022}
+    - target: {fileID: 1881231750688684689, guid: cf7ba5cb921ee5d499ccff262ea02481,
+        type: 3}
+      propertyPath: soundIntensity
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8571778626990432501, guid: cf7ba5cb921ee5d499ccff262ea02481,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1462,6 +1472,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 886233110971825789, guid: c0df3c0f0c641154ba4daef3ce547ecc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3033594318091762823, guid: c0df3c0f0c641154ba4daef3ce547ecc,
         type: 3}

@@ -8,12 +8,13 @@ public class ChangeScenes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     public void PlayAgainButton()
     {
         SceneManager.LoadScene("MainScene");
+        
     }
     public void IntroLineScene()
     {

@@ -1,13 +1,20 @@
+using StarterAssests;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class PlayerIntract : MonoBehaviour
 {
+    private StarterAssestsInputs _input;
+    private void Awake()
+    {
+        _input = GetComponent<StarterAssestsInputs>();
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (_input.interact)
         {
             Iinteractable interactable = GetInteractableObject();
             if (interactable != null)

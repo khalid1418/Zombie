@@ -23,6 +23,8 @@ public class Player : MonoBehaviour , Damagable
     [SerializeField]
     private float attackTimer = 2f;
     [SerializeField]
+    private float soundIntensity = 5f;
+    [SerializeField]
     private Slider slider;
     [SerializeField]
     private Gradient gradient;
@@ -94,9 +96,10 @@ public class Player : MonoBehaviour , Damagable
 
     private void switchWeapon()
     {
-        if(UnityEngine.Input.GetKeyDown(KeyCode.Alpha1) && isPickUp)
+        if(_input.swap && isPickUp)
         {
             gunEquipment = !gunEquipment;
+            _input.swap = false;
             
         }
     }
@@ -140,13 +143,11 @@ public class Player : MonoBehaviour , Damagable
             Vector3 worldAimTarget = mouseWorldPosition;
             worldAimTarget.y = transform.position.y;
             Vector3 aimDirection = (worldAimTarget - transform.position).normalized;
-            //transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
             gunAnimation.SetLayerWeight(1, Mathf.Lerp(gunAnimation.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
             rightHandBone.weight = 0;
             leftHandBone.weight = 0;
             leftHandWithGun.weight = 1;
             AimRig.weight = 1;
-            //bodyRig.weight = 1;
             mechate.SetActive(false);
             pistolGun.SetActive(true);
             crossFireImage.SetActive(true);
@@ -155,7 +156,6 @@ public class Player : MonoBehaviour , Damagable
 
             if ( _input.shoot && bullets >0)
             {
-                Debug.Log(bullets);
                 Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
                 Instantiate(bulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));
                 Instantiate(vfx, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));
@@ -163,6 +163,20 @@ public class Player : MonoBehaviour , Damagable
                 _input.shoot = false;
                bullets -= 1;
                 audioSource.PlayOneShot(audioClips[0]);
+                Collider[] zombies = Physics.OverlapSphere(transform.position, soundIntensity, zombieLayer);
+                for (int i = 0; i < zombies.Length; i++)
+                {
+                    
+                    
+                    
+                        zombies[i].TryGetComponent<AiZombie>( out AiZombie aizombie);
+                        if ( aizombie != null )
+                    {
+                        aizombie.OnAware();
+                    }
+                    
+
+                }
 
             }
 
@@ -206,9 +220,18 @@ public class Player : MonoBehaviour , Damagable
                 hit.collider.gameObject.TryGetComponent<Damagable>(out Damagable damagable);
             if(hit.collider.gameObject.name == "Boss")
             {
-                damagable.Damage(20);
-            }else
+                if(damagable != null)
+                {
+                    damagable.Damage(20);
+
+                }
+            }
+            else
+               if(damagable != null)
+                {
                     damagable.Damage(30);
+
+                }
                 
                 
             }

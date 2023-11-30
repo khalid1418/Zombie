@@ -331,7 +331,14 @@ public class AiZombie : MonoBehaviour , Damagable
         animator.enabled = false;
         foreach (Collider collider in ragdollColliders)
         {
-            collider.enabled = true;
+            if(collider == ragdollColliders[0])
+            {
+                collider.enabled = false;
+            }else
+            {
+                collider.enabled = true;
+            }
+
         }
         foreach (Rigidbody rigid in ragdollBodies)
         {
@@ -351,6 +358,7 @@ public class AiZombie : MonoBehaviour , Damagable
             audioSource.Stop();
             audioSource.PlayOneShot(sounds[0]);
         }
+        OnAware();
     }
 
 

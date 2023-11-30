@@ -13,7 +13,9 @@ namespace StarterAssests
 		public bool jump;
 		public bool sprint;
 		public bool aim;
-		public bool shoot;
+		public bool shoot;	
+		public bool interact;
+		public bool swap;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -43,6 +45,14 @@ namespace StarterAssests
         public void OnShoot(InputValue value)
         {
             ShootInput(value.isPressed);
+        }		
+		public void OnInteract(InputValue value)
+        {
+            InteractInput(value.isPressed);
+        }
+		public void OnSwap(InputValue value)
+        {
+            SwapInput(value.isPressed);
         }
 
         public void OnSprint(InputValue value)
@@ -73,6 +83,14 @@ namespace StarterAssests
         public void ShootInput(bool newShootState)
         {
             shoot = newShootState;
+        }  
+		public void InteractInput(bool newInteractState)
+        {
+            interact = newInteractState;
+        }
+		public void SwapInput(bool newSwapState)
+        {
+            swap = newSwapState;
         }
 
         public void SprintInput(bool newSprintState)
