@@ -57,7 +57,7 @@ public class Door : MonoBehaviour , Iinteractable
             {
                 if (isSyringe)
                 {
-                    SceneManager.LoadScene("StartScene");
+                    LoadingScriptScene.LoadScene("LoadingScene");
 
 
                 }else

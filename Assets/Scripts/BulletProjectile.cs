@@ -6,6 +6,9 @@ public class BulletProjectile : MonoBehaviour {
 
     [SerializeField] private Transform vfxBlood;
     //[SerializeField] private Transform vfxHitRed;
+    private float speed = 100f;
+    private Transform hitTransform;
+
 
     private Rigidbody bulletRigidbody;
 
@@ -16,7 +19,7 @@ public class BulletProjectile : MonoBehaviour {
     }
 
     private void Start() {
-        float speed = 100f;
+
         bulletRigidbody.velocity = transform.forward * speed;
         
 
@@ -35,6 +38,7 @@ public class BulletProjectile : MonoBehaviour {
                 // Hit target
                 Instantiate(vfxBlood, transform.position, Quaternion.identity);
                 other.gameObject.TryGetComponent<Damagable>(out Damagable damagable);
+                hitTransform = other.transform;
                 if (other.gameObject.name == "Boss")
                 {
                     damagable.Damage(30);

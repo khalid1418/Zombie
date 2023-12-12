@@ -47401,6 +47401,12 @@ PrefabInstance:
       propertyPath: soundIntensity
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1881231750688684689, guid: cf7ba5cb921ee5d499ccff262ea02481,
+        type: 3}
+      propertyPath: bulletProjectile
+      value: 
+      objectReference: {fileID: 4738416058690398, guid: 068381675912eb044a912de01e17f9cd,
+        type: 3}
     - target: {fileID: 3405938560887765878, guid: cf7ba5cb921ee5d499ccff262ea02481,
         type: 3}
       propertyPath: GroundLayers.m_Bits

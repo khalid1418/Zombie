@@ -18,7 +18,7 @@ public class ChangeScenes : MonoBehaviour
     }
     public void IntroLineScene()
     {
-        SceneManager.LoadScene("StoryLine");
+        LoadingScriptScene.LoadScene("LoadingScene");
     }
 
     public void BackToMenu()
